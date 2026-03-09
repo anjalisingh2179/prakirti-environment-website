@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav-bar{
+    height:12vh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    color:green;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.nav-bar .logo{
+    display: flex;
+    align-items:center;
+    width:40%;
+}
+
+.logo img{
+    height:7vh;
+    border-radius: 50%;
+    margin:20px;
+}
+.content h2{
+    font-size:30px;
+}
+.content p{
+    font-size: 12px;
+}
+
+.nav-bar .menu{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width:60%;
+}
+.menu .menu-list a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color:green;
+}
+.menu .menu-list a:hover{
+    text-decoration: underline;
+    font-size: 21px;
+}
+
+.main{
+    height:88vh;
+    background-image: url(../images/imag1.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:60vh;
+    width:60vw;
+    color:white;
+    margin: 10px;
+    padding: 40px;
+}
+.main-content h1{
+    margin-top: 20px;
+    font-size: 54px;
+    font-weight: 900;
+}
+.main-content p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.main-content .buttons{
+    display: flex;
+    margin:20px;
+    gap:40px;
+}
+
+.buttons .button{
+    background-color: rgb(73, 188, 73);
+    color:white;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.buttons .button:hover{
+    background-color: green;
+    font-size: 16px;
+}
+

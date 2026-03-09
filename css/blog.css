@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* BLOG SECTION */
+.blog-section {
+  padding: 60px 20px;
+  background: #f6faf7;
+  text-align: center;
+}
+
+.blog-section h2 {
+  color: #1b4332;
+  font-size: 32px;
+}
+
+.blog-subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* BLOG CARDS */
+.blog-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.blog-category {
+  font-size: 12px;
+  color: #2d6a4f;
+  font-weight: bold;
+}
+
+.blog-content h3 {
+  margin: 10px 0;
+  color: #1b4332;
+}
+
+.blog-excerpt {
+  font-size: 14px;
+  color: #555;
+}
+
+.blog-meta {
+  font-size: 12px;
+  color: #777;
+  margin: 10px 0;
+}
+
+.read-btn {
+  background: none;
+  border: none;
+  color: #2d6a4f;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: white;
+  width: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  animation: popup 0.3s ease;
+}
+
+.modal-box img {
+  width: 100%;
+  height:50%;
+  object-fit: cover;
+}
+
+.modal-box h2 {
+  margin: 15px 20px 5px;
+  color: #1b4332;
+}
+
+.modal-box p {
+  margin: 0 20px 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .modal-box {
+    width: 90%;
+  }
+}

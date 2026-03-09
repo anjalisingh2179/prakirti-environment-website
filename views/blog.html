@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog | Prakriti</title>
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+  <div id="navbar"></div>
+<!-- BLOG SECTION -->
+<section class="blog-section">
+
+  <h2>Our Blog</h2>
+  <p class="blog-subtitle">
+    Ideas, stories & awareness from Prakriti 🌱
+  </p>
+
+  <div class="blog-container" id="blogContainer"></div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="" alt="blog image">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+  </div>
+</div>
+<script>
+  const blogData = [
+  {
+    title: "Why Water Conservation Matters",
+    excerpt: "Water is a precious resource. Learn why saving water is crucial...",
+    content: "Water conservation helps protect our ecosystem, reduces energy usage, and ensures availability for future generations.",
+    author: "Prakriti Team",
+    date: "20 Jan 2026",
+    category: "Awareness",
+    img: "../images/rainwater.webp"
+  },
+  {
+    title: "Role of Trees in Climate Change",
+    excerpt: "Trees act as carbon sinks and improve air quality...",
+    content: "Trees absorb carbon dioxide, reduce heat, and help maintain ecological balance.",
+    author: "Eco Club",
+    date: "15 Jan 2026",
+    category: "Environment",
+    img: "../images/tree.webp"
+  },
+  {
+    title: "Plastic-Free Campus Initiative",
+    excerpt: "Reducing plastic usage inside the campus...",
+    content: "This initiative focuses on eliminating single-use plastic through awareness and alternatives.",
+    author: "Prakriti Volunteers",
+    date: "10 Jan 2026",
+    category: "Sustainability",
+    img: "../images/waste.webp"
+  }
+];
+
+const blogContainer = document.getElementById("blogContainer");
+
+// CREATE BLOG CARDS
+blogData.forEach(blog => {
+  blogContainer.innerHTML += `
+    <div class="blog-card">
+      <img src="${blog.img}" alt="${blog.title}">
+      <div class="blog-content">
+        <span class="blog-category">${blog.category}</span>
+        <h3>${blog.title}</h3>
+        <p class="blog-excerpt">${blog.excerpt}</p>
+        <div class="blog-meta">
+          ${blog.author} · ${blog.date}
+        </div>
+        <button 
+          type="button"
+          class="read-btn"
+          data-title="${blog.title}"
+          data-img="${blog.img}"
+          data-content="${blog.content}">
+          Read More
+        </button>
+      </div>
+    </div>
+  `;
+});
+
+// MODAL LOGIC (EVENT DELEGATION)
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalText = document.getElementById("modalText");
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("read-btn")) {
+    modalImg.src = e.target.dataset.img;
+    modalTitle.textContent = e.target.dataset.title;
+    modalText.textContent = e.target.dataset.content;
+    modal.style.display = "flex";
+  }
+
+  if (e.target.classList.contains("close") || e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+</script>
+<script src="../script/script.js"></script>
+</body>
+</html>

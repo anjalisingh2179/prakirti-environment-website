@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="main2">
+        <div class="imag-event"></div>
+        <div class="cards">
+            <div class="heading1">
+                <h1>Projects</h1>
+            </div>
+            <hr>
+            <div class="card1" id="card1"> </div>
+        </div>
+    </div>
+     <div id="modal" class="modal">
+        <div class="modal-box">
+                <span class="close">&times;</span>
+                <img id="modalImg" src="" alt="details image" >
+                <h2 id="modalTitle">Event Details</h2>
+                <p id="modalText">Tree plantation drive organized by Prakirti NIT DGP</p>
+        </div>
+    </div>
+    <script>
+
+        const cardsData=[
+            {
+                title:"Smart Waste Segragation System",
+                subtitle:"Prakirti Event",
+                details:"Smart waste segregation systems are essential for urban sustainability, as they help manage waste efficiently and promote recycling. These systems utilize various technologies, including IoT, AI, and deep learning, to automate waste classification and sorting. They can separate different types of waste, such as metal, dry, and wet, and often convert wet waste into compost for horticulture and organic farming. By automating waste segregation, these systems reduce the need for manual sorting and improve the overall efficiency of waste management processes.",
+                img:"../images/waste.webp"
+            },
+            {
+                title:"Campus Tree Mapping project",
+                subtitle:"Campus Inititative",
+                details:"Students apply vegetative plant morphology terms to the problem of mapping the distribution of a single tree species on a college campus. Students first learn plant vegetative morphology terms through drawing a variety of leaves and then participating in a leaf treasure hunt in groups outdoors. A dichotomous key to common trees is introduced. After some practice with the key, student groups are assigned a tree species. Students annotate a campus map marking all of the sites where the assigned tree species grows.",
+                img:"../images/tree.webp"
+            },
+            {
+                title:"Rainwater Harvesting",
+                subtitle:"Awarness Program",
+                details:"Rainwater harvesting is a sustainable practice that involves collecting and storing rainwater for various uses, significantly contributing to water conservation and management.What is Rainwater Harvesting?Rainwater harvesting (RWH) is the collection and storage of rainwater from surfaces such as roofs, which is then redirected to storage tanks, cisterns, or reservoirs. This method allows for the utilization of rainwater that would otherwise run off and be wasted, providing a valuable resource for various applications.",
+                img:"../images/rainwater.webp"
+            },
+            {
+                title:"E-Waste collection & Disposal",
+                subtitle:"Green Tech",
+                details:"Responsible e-waste disposal drive",
+                img:"../images/e-waste.png"
+            },
+            {
+                title:"Air quality Monitoring System",
+                subtitle:"Annual Event",
+                details:"Talk on sustainable development goals",
+                img:"../images/air.png"
+            },
+        ];
+
+        const container=document.getElementById("card1");
+
+        cardsData.forEach((card,index)=>{
+            container.innerHTML+=`
+                <div class="card">
+                    <img src="${card.img}" alt="${card.title}">
+                    <div class="card-content">
+                        <h3>${card.title}</h3>
+                        <p>${card.subtitle}</p>
+                        <button class="view-btn" data-img="${card.img}" data-title="${card.title}" data-details="${card.details}">View Details</button>
+                    </div>
+                </div>
+            `;
+        })
+
+        const modal=document.getElementById("modal");
+        const modalImg=document.getElementById("modalImg");
+        const modalTitle=document.getElementById("modalTitle");
+        const modalText=modal.querySelector("p");
+        const closeBtn=modal.querySelector(".close");
+
+        document.addEventListener("click",(e)=>{
+           if(e.target.classList.contains("view-btn")){
+            modalImg.src=e.target.dataset.img;
+            modalTitle.textContent=e.target.dataset.title;
+            modalText.textContent=e.target.dataset.details;
+            modal.style.display="flex";
+           }
+            if(e.target.classList.contains("close") || e.target===modal){
+                modal.style.display="none";
+            }
+        });
+    </script>
+    <script src="../script/script.js"></script>
+</body>
+</html>

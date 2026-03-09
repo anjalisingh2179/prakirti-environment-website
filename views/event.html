@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="../css/event.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="main2">
+        <div class="imag-event"></div>
+        <div class="cards">
+            <div class="heading1">
+                <h1>Events</h1>
+            </div>
+            <hr>
+            <div class="card1" id="card1"> </div>
+        </div>
+    </div>
+     <div id="modal" class="modal">
+        <div class="modal-box">
+                <span class="close">&times;</span>
+                <img id="modalImg" src="" alt="details image" >
+                <h2 id="modalTitle">Event Details</h2>
+                <p id="modalText">Tree plantation drive organized by Prakirti NIT DGP</p>
+        </div>
+    </div>
+    <script>
+
+        const cardsData=[
+            {
+                title:"Plantation Drive",
+                subtitle:"Prakirti Event",
+                details:"Tree planatation drive organized on campus",
+                img:"../images/imag1.jpg"
+            },
+            {
+                title:"Cleanliness Drive",
+                subtitle:"Campus Inititative",
+                details:"Clean India mission activity by Prakirti team",
+                img:"../images/imag3.jpg"
+            },
+            {
+                title:"Water Conservation",
+                subtitle:"Awarness Program",
+                details:"Session on water saving techniques",
+                img:"../images/waste.webp"
+            },
+            {
+                title:"E-Waste collection",
+                subtitle:"Green Tech",
+                details:"Responsible e-waste disposal drive",
+                img:"../images/e-waste.png"
+            },
+            {
+                title:"Earth Day Celebration",
+                subtitle:"Annual Event",
+                details:"Talk on sustainable development goals",
+                img:"../images/imag1.jpg"
+            },
+        ];
+
+        const container=document.getElementById("card1");
+
+        cardsData.forEach((card,index)=>{
+            container.innerHTML+=`
+                <div class="card">
+                    <img src="${card.img}" alt="${card.title}">
+                    <div class="card-content">
+                        <h3>${card.title}</h3>
+                        <p>${card.subtitle}</p>
+                        <button class="view-btn" data-img="${card.img}" data-title="${card.title}" data-details="${card.details}">View Details</button>
+                    </div>
+                </div>
+            `;
+        })
+
+        const modal=document.getElementById("modal");
+        const modalImg=document.getElementById("modalImg");
+        const modalTitle=document.getElementById("modalTitle");
+        const modalText=modal.querySelector("p");
+        const closeBtn=modal.querySelector(".close");
+
+        document.addEventListener("click",(e)=>{
+           if(e.target.classList.contains("view-btn")){
+            modalImg.src=e.target.dataset.img;
+            modalTitle.textContent=e.target.dataset.title;
+            modalText.textContent=e.target.dataset.details;
+            modal.style.display="flex";
+           }
+            if(e.target.classList.contains("close") || e.target===modal){
+                modal.style.display="none";
+            }
+        });
+    </script>
+    <script src="../script/script.js"></script>
+</body>
+</html>
